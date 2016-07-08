@@ -77,4 +77,11 @@ public class CategoryController {
 		return Constants.CONSTANTS_TRUE;
 	}
 	
+	@RequestMapping(value = "/queryAllCategories")
+	@ResponseBody
+	public List<Category> queryAllCategories(HttpSession session){
+		List<Category> accounts = categoryServiceImpl.queryAllRecord();
+		return accounts;
+	} 
+	
 }

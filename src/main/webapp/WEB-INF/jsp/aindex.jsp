@@ -56,14 +56,14 @@
 		<div data-options="region:'north',title:'欢迎来到SSH后台管理',split:true" style="height:100px;"></div>     
         <div data-options="region:'west',title:'系统操作',split:true" style="width:200px;">  
             <!-- 此处显示的是系统菜单 -->  
-            <div id="menu"  class="easyui-accordion" data-options="fit:true"">     
+            <div id="menu"  class="easyui-accordion" data-options="fit:true">     
                 <div title="基本操作" data-options="iconCls:'icon-save'">     
 			        <ul>  
 			            <li><a href="#" title="queryFrame">类别管理</a>  
-			            <li><a href="#">商品管理</a> 
+			            <li><a href="#" title="../product/productManageFrame">商品管理</a> 
 			        </ul> 
                 </div>     
-                <div title="其他操作" data-options="iconCls:'icon-reload'">     
+                <div title="其他操作" data-options="iconCls:'icon-reload'">  
 			        <ul>  
 			            <li><a href="#" title="">类别管理</a>  
 			            <li><a href="#">商品管理</a>  
@@ -80,5 +80,7 @@
 		</div>
 		<div id="categoryAddWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
 		<div id="categoryModifiedWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
+		<div id="productAddWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
+		<div id="productModifyWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
 	</body>
 </html>

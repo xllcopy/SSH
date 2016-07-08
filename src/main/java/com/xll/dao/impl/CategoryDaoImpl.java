@@ -27,7 +27,7 @@ public class CategoryDaoImpl extends BasicDaoImpl<Category> implements CategoryD
 		Session session = sessionFactory.getCurrentSession();
 		Query query = null;
 		String hql = "from Category";
-		if(type != null && !type.equals("")){
+		if(type != null && !type.trim().equals("")){
 			hql += " where type like ?";
 			query = session.createQuery(hql).setString(0, "%" + type + "%");
 		}else{

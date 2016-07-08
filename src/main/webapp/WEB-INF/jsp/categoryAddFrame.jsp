@@ -51,14 +51,14 @@
 	            <label for="name">商品名称:</label> <input type="text" name="type" />     
 	        </div>     
             <div>  
-                <label>所属管理员：</label>
+                <label>所属管理员:</label>
                 <!-- 后台传参是id : value (name的值为参数名)-->   
                 <input id="admin" name="id"/>
             </div>  
 	        <div>     
-	            <label for="hot">热点:</label>     
-				             是<input type="radio" name="hot" value="true" />   
-				             否 <input type="radio" name="hot" value="false" />  
+	            <label for="productDisplay">热点:</label>     
+				             是<input type="radio" name="productDisplay" value="true" />   
+				             否 <input type="radio" name="productDisplay" value="false" />  
 	        </div>    
 	        <div>  
 	            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>    

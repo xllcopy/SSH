@@ -69,7 +69,7 @@
                     	//如果是hot，该值为true，value是boolean型变量  
                         return "<input type='checkbox' checked='checked' disabled='true'"; //勾选  
                     } else {  
-                        return "<input type='checkbox' disable='true'"; //不勾选  
+                        return "<input type='checkbox' disabled='true'"; //不勾选  
                     }  
                 } 
 			} 
