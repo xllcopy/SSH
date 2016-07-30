@@ -2,15 +2,16 @@ package com.xll.pojo;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
@@ -23,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class AdminAccount {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
 	
 	@Column(length=64 , name = "login_name")
 	private String loginName;
@@ -34,7 +35,8 @@ public class AdminAccount {
 	@Column(length=64)
 	private String pwd;
 	
-	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY , mappedBy = "adminAccount")
+	@OneToMany(targetEntity=Category.class)
+	@Cascade({CascadeType.SAVE_UPDATE})
 	private Set<Category> categories;
 	public AdminAccount(){}
 	
@@ -42,11 +44,11 @@ public class AdminAccount {
 		this.id = id;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

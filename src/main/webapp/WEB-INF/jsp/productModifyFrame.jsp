@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -22,7 +22,9 @@
 			$('#productDeDesc').val(rows[0].productDeDesc);
 			$('#productPicturePath').val(rows[0].productPicturePath);
 			$('#productID').val(rows[0].id);
-			$('#category').val(rows[0].category.id);
+			if(rows[0].category != null){
+				$('#category').val(rows[0].category.id);
+			}	
 			$('#productName').validatebox({
 				required:true,
 				missingMessage:'请输入商品名称'
@@ -33,6 +35,11 @@
 				missingMessage:'请输入商品价格'
 			});
 			$('#productPrice').validatebox('disableValidation');
+			$("input[name=uploadProductPicture]").validatebox({
+				required:true,
+				missingMessage:'选择图片上传'
+			});
+			$("#uploadProductPic").form("disableValidation");
 			$("#category").combobox({
 				url:'../category/queryAllCategories',
                 valueField:'id',    
@@ -68,7 +75,9 @@
 			$("#btn").click(function(){
 				$('#productName').validatebox('enableValidation');
 				$('#productPrice').validatebox('enableValidation');
-				if($("#productName").validatebox('validate') && $("#productPrice").validatebox('validate')){
+				$("#uploadProductPic").form("enableValidation");
+				if($("#productName").validatebox('validate') && $("#productPrice").validatebox('validate')
+						&& $("#uploadProductPic").form("validate")){
 					var productName = $('#productName').val();
 					var productPrice = $('#productPrice').val();
 					var productPicturePath = $('#productPicturePath').val();

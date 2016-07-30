@@ -2,10 +2,8 @@ package com.xll.pojo;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
@@ -25,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	/** Àà±ðÃû³Æ */
 	@Column(length = 64)
@@ -35,11 +36,11 @@ public class Category {
 	@Column(length = 1)
 	private boolean hot;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="account_id")
+	@ManyToOne
+	@JoinColumn(name="account_id" , referencedColumnName="id")
 	private AdminAccount adminAccount;
-	
-	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY , mappedBy = "category")
+	@OneToMany(targetEntity=Product.class)
+	@Cascade({CascadeType.SAVE_UPDATE})
 	private Set<Product> products;
 
 	public Category() {
@@ -60,11 +61,11 @@ public class Category {
 		this.adminAccount = adminAccount;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -90,5 +91,13 @@ public class Category {
 
 	public void setAdminAccount(AdminAccount adminAccount) {
 		this.adminAccount = adminAccount;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 }

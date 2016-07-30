@@ -1,11 +1,9 @@
 package com.xll.pojo;
 
 import java.text.ParseException;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +16,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
 	
 	@Column(length = 255 , name = "product_name")
 	private String productName;
@@ -36,7 +34,7 @@ public class Product {
 	private String productDeDesc;
 	
 	@Column(name = "product_produce_date")
-	private Date productProduceDate;
+	private String productProduceDate;
 	
 	/* 是否为推荐商品,推荐商品才有可能显示在商城首页 */
 	@Column(name = "product_display")
@@ -45,17 +43,17 @@ public class Product {
 	@Column(name = "product_is_valid")
 	private boolean productIsValid;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="category_id")
+	@ManyToOne
+	@JoinColumn(name="category_id" , referencedColumnName="id")
 	private Category category;
 	
 	public Product(){}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -99,11 +97,11 @@ public class Product {
 		this.productDeDesc = productDeDesc;
 	}
 
-	public Date getProductProduceDate() {
+	public String getProductProduceDate() {
 		return productProduceDate;
 	}
 
-	public void setProductProduceDate(Date productProduceDate) throws ParseException {
+	public void setProductProduceDate(String productProduceDate) throws ParseException {
 		this.productProduceDate = productProduceDate;
 	}
 

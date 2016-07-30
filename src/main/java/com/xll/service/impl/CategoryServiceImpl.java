@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
 import com.xll.dao.CategoryDao;
 import com.xll.pojo.Category;
 import com.xll.service.CategoryService;
@@ -26,6 +27,17 @@ public class CategoryServiceImpl extends BasicServiceImpl<Category> implements C
 	@Override
 	public void deleteCategory(String ids) {
 		categoryDaoImpl.deleteCategory(ids);
+	}
+
+	@Override
+	public void updateCategories(String ids) {
+		categoryDaoImpl.updateCategories(ids);
+		
+	}
+
+	@Override
+	public List<Category> queryByHot(boolean hot) {
+		return categoryDaoImpl.queryByHot(hot);
 	}
 
 }

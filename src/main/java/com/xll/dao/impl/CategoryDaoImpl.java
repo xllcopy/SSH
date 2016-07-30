@@ -17,7 +17,6 @@ import com.xll.pojo.Category;
 @Transactional
 @Repository
 public class CategoryDaoImpl extends BasicDaoImpl<Category> implements CategoryDao {
-	
 	public CategoryDaoImpl() {
 		super(Category.class);
 	}
@@ -35,11 +34,27 @@ public class CategoryDaoImpl extends BasicDaoImpl<Category> implements CategoryD
 		}
 		return query.setFirstResult((page - 1) * size).setMaxResults(size).list();
 	}
-
+	
 	@Override
 	public void deleteCategory(String ids) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "delete from Category where id in (" + ids + ")";
+		String hql = "delete from Category where id in " + "(" + ids + ")";
 		session.createQuery(hql).executeUpdate();
+	}
+
+	@Override
+	public void updateCategories(String ids) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "update Category set adminAccount = null where adminAccount in " + "(" + ids + ")";
+		session.createQuery(hql).executeUpdate();
+		
+	}
+
+	@Override
+	public List<Category> queryByHot(boolean hot) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "from Category where hot = ?";
+		List<Category> list = session.createQuery(hql).setBoolean(0, hot).list();
+		return list;
 	}
 }

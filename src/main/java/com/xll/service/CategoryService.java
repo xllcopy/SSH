@@ -23,4 +23,18 @@ public interface CategoryService extends BasicService<Category>{
 	 *@since 2016/6/18 
 	 */
 	public void deleteCategory(String ids);
+	
+	/**
+	 *根据AdminAccount.id批量更新category
+	 *@author xialonglei
+	 *@since 2016/7/16 
+	 */
+	public void updateCategories(String ids);
+	
+	/**
+	 *根据hot查询出Category
+	 *@author xialonglei
+	 *@since 2016/7/17 
+	 */
+	public List<Category> queryByHot(boolean hot);
 }

@@ -30,4 +30,14 @@ public class ProductServiceImpl extends BasicServiceImpl<Product> implements Pro
 		productDaoImpl.deleteProducts(ids);
 	}
 
+	@Override
+	public void updateCategories(String ids) {
+		productDaoImpl.updateCategories(ids);
+	}
+
+	@Override
+	public List<Product> queryByCategoryId(long cid) {
+		return productDaoImpl.queryByCategoryId(cid);
+	}
+
 }

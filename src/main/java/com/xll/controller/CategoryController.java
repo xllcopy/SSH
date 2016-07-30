@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.xll.pojo.AdminAccount;
 import com.xll.pojo.Category;
 import com.xll.service.CategoryService;
+import com.xll.service.ProductService;
 import com.xll.util.Constants;
 import com.xll.util.DataGrid;
 
@@ -21,11 +22,18 @@ import com.xll.util.DataGrid;
 public class CategoryController {
 	@Resource
 	private CategoryService categoryServiceImpl;
+	@Resource 
+	private ProductService productServiceImpl;
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public String save(@RequestParam String type, @RequestParam boolean hot, @RequestParam long id) {
-		Category category = new Category(type, hot, new AdminAccount(id));
+	public String save(@RequestParam String type, @RequestParam boolean hot, @RequestParam String id) {
+		Category category = new Category();
+		if(!"".equals(id)){
+			category.setAdminAccount(new AdminAccount(Long.parseLong(id)));
+		}
+		category.setType(type);
+		category.setHot(hot);
 		categoryServiceImpl.save(category);
 		return Constants.CONSTANTS_TRUE;
 	}
@@ -51,6 +59,7 @@ public class CategoryController {
 	@RequestMapping(value = "/deleteCategory")
 	@ResponseBody
 	public String deleteCategory(HttpSession session , @RequestParam String ids){
+		productServiceImpl.updateCategories(ids);
 		categoryServiceImpl.deleteCategory(ids);
 		return Constants.CONSTANTS_TRUE;
 	}
@@ -82,6 +91,5 @@ public class CategoryController {
 	public List<Category> queryAllCategories(HttpSession session){
 		List<Category> accounts = categoryServiceImpl.queryAllRecord();
 		return accounts;
-	} 
-	
+	}
 }

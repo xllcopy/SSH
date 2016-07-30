@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- spring的属性加载器，加载properties文件中的属性 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -34,7 +34,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
+				<!--<prop key="hibernate.format_sql">true</prop>-->
 			</props>
 		</property>
 		<property name="annotatedClasses">

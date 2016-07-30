@@ -20,4 +20,13 @@ public interface CategoryDao extends BasicDao<Category>{
 	 *@since 2016/6/18 
 	 */
 	public void deleteCategory(String ids);
+
+	public void updateCategories(String ids);
+	
+	/**
+	 *根据hot查询出Category
+	 *@author xialonglei
+	 *@since 2016/7/17 
+	 */
+	public List<Category> queryByHot(boolean hot);
 }

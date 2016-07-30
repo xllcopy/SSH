@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -56,9 +56,9 @@
                 <input id="admin" name="id"/>
             </div>  
 	        <div>     
-	            <label for="productDisplay">热点:</label>     
-				             是<input type="radio" name="productDisplay" value="true" />   
-				             否 <input type="radio" name="productDisplay" value="false" />  
+	            <label for="hot">热点:</label>     
+				             是<input type="radio" name="hot" value="true" />   
+				             否 <input type="radio" name="hot" value="false" />
 	        </div>    
 	        <div>  
 	            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>    

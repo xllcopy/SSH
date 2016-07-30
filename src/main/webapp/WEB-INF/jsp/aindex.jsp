@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -37,7 +37,9 @@
 		            var href = $(this).attr("title");  
 		            //判断当前右边是否已有相应的tab  
 		            if($("#tt").tabs("exists", text)) {  
-		                $("#tt").tabs("select", text);  
+		                $("#tt").tabs("select", text);
+		                //刷新tab
+		                $("iframe[title="+text+"]").get(0).contentWindow.$("#dg").datagrid("reload")
 		            } else {  
 		                //如果没有则创建一个新的tab，否则切换到当前tag  
 		                $("#tt").tabs("add",{  
@@ -65,7 +67,7 @@
                 </div>     
                 <div title="其他操作" data-options="iconCls:'icon-reload'">  
 			        <ul>  
-			            <li><a href="#" title="">类别管理</a>  
+			            <li><a href="#" title="../adminAccount/adminManageFrame">管理员管理</a>  
 			            <li><a href="#">商品管理</a>  
 			        </ul> 
                 </div>      
@@ -74,7 +76,7 @@
         <div data-options="region:'center',title:'后台操作页面'" style="padding:1px;background:#eee;">
 	    	<div id="tt" class="easyui-tabs" data-options="fit:true">   
     			<div title="系统缺省页面" style="padding:10px;">
-    				此处以后显示相应的系统信息（当前操作系统的类型，当前项目的域名，硬件的相关配置或者显示报表
+    				此处以后显示相应的系统信息（当前操作系统的类型，当前项目的域名，硬件的相关配置或者显示报表）
     			</div>
 			</div>
 		</div>
@@ -82,5 +84,7 @@
 		<div id="categoryModifiedWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
 		<div id="productAddWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
 		<div id="productModifyWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
+		<div id="adminAddWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
+		<div id="adminModifyWin" data-options="collapsible:false,minimizable:false,maximizable:false,modal:true"></div>
 	</body>
 </html>

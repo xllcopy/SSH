@@ -1,15 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<%@ include file = "/public/head.jspf" %>
 		<script type = text/javascript>
 			$(function(){
+				var dg = parent.$("iframe[title='类别管理']").get(0).contentWindow.$("#dg");
+				var rows = dg.datagrid('getSelections');
+				if(rows[0].adminAccount != null){
+					$('#adminAccount').val(rows[0].adminAccount.id);
+				}
+				$('input[name=type]').val(rows[0].type);
+				if(rows[0].hot){
+					$('input[name=hot]').get(0).checked = true;
+				}else{
+					$('input[name=hot]').get(1).checked = true;
+				}
+				$("input[name=categoryID]").val(rows[0].id);
 				$("input[name=type]").validatebox({
 					required:true,
 					missingMessage:'请输入类别名称'
 				});
+				$("#modifiedForm").form("disableValidation");
 				$("#adminAccount").combobox({
 					  url:'../adminAccount/queryAllAdminAccount',  
 	                  valueField:'id',    
@@ -19,16 +32,6 @@
 	                  width:120, //要同时设置两个宽度才行  
 	                  editable:false //下拉框不允许编辑 
 				});
-				$("#modifiedForm").form("disableValidation");
-				var dg = parent.$("iframe[title='类别管理']").get(0).contentWindow.$("#dg");
-				var rows = dg.datagrid('getSelections');
-				$('input[name=type]').val(rows[0].type);
-				if(rows[0].hot){
-					$('input[name=hot]').get(0).checked = true;
-				}else{
-					$('input[name=hot]').get(1).checked = true;
-				}
-				$("input[name=categoryID]").val(rows[0].id);
 				$("#btn").click(function(){
 					$("#modifiedForm").form("enableValidation");
 					//如果验证成功，则提交数据  

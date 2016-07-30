@@ -10,15 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.xll.pojo.Product;
 import com.xll.service.ProductService;
@@ -66,8 +63,11 @@ public class ProductController {
 	@RequestMapping(value = "/save" , method = RequestMethod.POST)
 	@ResponseBody
 	public String save(@RequestBody Product product){
+		SimpleDateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT);
+		String date = null;
 		try {
-			product.setProductProduceDate(new Date());
+			date = format.format(new Date());
+			product.setProductProduceDate(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

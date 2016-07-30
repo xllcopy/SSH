@@ -50,6 +50,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.2.15.Final</version>
 		</dependency>
+		<!-- hibernate二级缓存jar -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>

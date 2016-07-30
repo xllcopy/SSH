@@ -23,5 +23,18 @@ public interface ProductService extends BasicService<Product>{
 	 *@since 2016/7/2 
 	 */
 	void deleteProducts(String ids);
+	
+	/**
+	 *@author xialonglei
+	 *@since 2016/7/16 
+	 */
+	void updateCategories(String ids);
+	
+	/**
+	 *根据Category.id查出Product
+	 *@author xialonglei
+	 *@since 2016/7/17
+	 */
+	List<Product> queryByCategoryId(long cid);
 
 }
