@@ -8,7 +8,6 @@ import javax.servlet.ServletContext;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import com.xll.pojo.Category;
 import com.xll.pojo.Product;
 import com.xll.service.CategoryService;

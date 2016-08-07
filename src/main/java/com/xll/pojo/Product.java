@@ -1,6 +1,7 @@
 package com.xll.pojo;
 
 import java.text.ParseException;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,10 +10,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+/**
+ *商品实体类
+ *其中注解@Cache是为Product实体类启用二级缓存,缓存策略是READ_WRITE，允许更改数据
+ *@author xialonglei
+ */
 @Entity
 @Table
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(value={"goodsBuyInfos"})
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -46,6 +63,10 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="category_id" , referencedColumnName="id")
 	private Category category;
+	
+	@OneToMany(targetEntity = GoodsBuyInfo.class)
+	@Cascade({CascadeType.ALL})
+	private Set<GoodsBuyInfo> goodsBuyInfos; 
 	
 	public Product(){}
 
@@ -127,5 +148,13 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public Set<GoodsBuyInfo> getGoodsBuyInfos() {
+		return goodsBuyInfos;
+	}
+
+	public void setGoodsBuyInfos(Set<GoodsBuyInfo> goodsBuyInfos) {
+		this.goodsBuyInfos = goodsBuyInfos;
 	}
 }
