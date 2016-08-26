@@ -11,6 +11,7 @@ import com.xll.pojo.GoodsBuyInfo;
 import com.xll.pojo.Order;
 import com.xll.pojo.Product;
 import com.xll.service.GoodsBuyInfoService;
+import com.xll.service.OrderService;
 import com.xll.service.ProductService;
 
 /**
@@ -20,12 +21,14 @@ import com.xll.service.ProductService;
  */
 @Controller
 @RequestMapping("/cart")
-public class GoodsBuyInfoController {
+public class CartController {
 	
 	@Resource
 	private GoodsBuyInfoService goodsBuyInfoServiceImpl;
 	@Resource
 	private ProductService productServiceImpl;
+	@Resource
+	private OrderService orderServiceImpl;
 	
 	/**
 	 *@param session session中是保存着购物车 
@@ -38,10 +41,14 @@ public class GoodsBuyInfoController {
 		//返回新的或更新的购物车
 		order = goodsBuyInfoServiceImpl.addGoodsBuyInfoIntoOrder(order, goodsBuyInfo);
 		//计算总金额
-		
+		order.setTotal(orderServiceImpl.computeTotalPrice(order));
 		session.setAttribute("order", order);
 		//进到购物车界面
 		return "showCart";
 	}
-
+	@RequestMapping(value = "/payInfoFrame")
+	public String returnPayInfoFrame(){
+		return "payInfoFrame";
+	}
 }
+

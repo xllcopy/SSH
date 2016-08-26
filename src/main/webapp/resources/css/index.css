@@ -1,7 +1,12 @@
-.mark{
+.welcome{
 	display:block;
 	float:right;
 }
-.mark a:hover{
-	color: #FF0033;
+.mark{
+	display:block;
+	float:right;
+	margin-right:10px;
+}
+.mark:hover{
+	color:#F00;
 }

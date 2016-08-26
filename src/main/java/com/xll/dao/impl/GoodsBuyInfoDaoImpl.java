@@ -16,7 +16,7 @@ public class GoodsBuyInfoDaoImpl extends BasicDaoImpl<GoodsBuyInfo> implements G
 	public GoodsBuyInfoDaoImpl() {
 		super(GoodsBuyInfo.class);
 	}
-
+	
 	@Override
 	public Order addGoodsBuyInfoIntoOrder(Order order, GoodsBuyInfo goodsBuyInfo) {
 		

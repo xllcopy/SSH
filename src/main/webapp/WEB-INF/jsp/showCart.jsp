@@ -40,5 +40,15 @@
 				</c:forEach>
 			</table>
 		</div>
+		<div class='cart-total'>
+			<div class='cart-total-price'>
+				<span class='text-price'>总计：￥${sessionScope.order.total}</span>
+			</div>
+			<ul class='cart-total-tabs'>
+				<li class='cart-square-accounts-tab'><a href='payInfoFrame'>结账</a></li>
+				<li class='cart-total-tab'><a href='#'>继续购物</a></li>
+				<li class='cart-total-tab'><a href='#'>清空购物车</a></li>
+			</ul>
+		</div>
 	</body>
 </html>

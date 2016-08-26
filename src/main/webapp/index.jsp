@@ -8,7 +8,7 @@
 		<script type='text/javascript'>
 			$(function(){
 				if($('.mark').text() == ""){
-					$('.mark').html("<a href='user/loginFrame'>欢迎，请登录!</a>");
+					$('.mark').val("请登录!");
 				}
 			})
 		</script>
@@ -16,34 +16,33 @@
 	<body>
 		<div>
 			<a href='category/returnAindex'>后台管理</a>
-			<span class='mark'>${sessionScope.user.loginName}</span>
+			<a class='mark' href='#'>${sessionScope.user.loginName}</a>
+			<span class='welcome'>欢迎，</span>
 		</div>
 		
-		<!-- 产品列表 -->
 	    <c:forEach items='${applicationScope.productsList}' var='list'>
-	     <div class='products_list products_slider clear'>
-	     	<!-- 显示类别名称 -->
-	         <h2 class='sub_title'>${list[0].category.type}</h2>
-	         <ul id='first-carousel' class='first-and-second-carousel jcarousel-skin-tango'>
+	     <div class='products-list'>
+	         <h2 class='sub-title'>${list[0].category.type}</h2>
+	         <ul class='product-list-wrapper'>
 	             <c:forEach items='${list}' var='product'>
-	              <li> 
-	              	  <a href='#' class='product_image'><img src='${shop}${product.productPicturePath}' /></a>
-	                  <div class='product_info'>
+	              <li class='product-list'> 
+	              	  <a href='#' class='product-image'><img src='${shop}${product.productPicturePath}'/></a>
+	                  <div class='product-info'>
 	                      <h3><a href='#'>商品名称：${product.productName }</a></h3>
 	                      <small>简单描述：${product.productSimDesc}</small> 
 	                  </div>
-	                  <div class='price_info'>
+	                  <div class='price-info'>
 	                      <a href='${shop}/cart/addProduct?id=${product.id}'>
-	                      	<span class='product_add_into_cart'>添加购物车</span>
+	                      	<span class='product-add-into-cart'>添加购物车</span>
 	                      </a>
-	                      <span class='product_price'>￥${product.productPrice}</span>
+	                      <span class='product-price'>￥${product.productPrice}</span>
 	                  </div>
 	                  <input type='hidden' name='id' value='${product.id}'/>
 	              </li>
 	             </c:forEach>
+	             <li class='clear'></li>
 	         </ul>
 	     </div>
 	    </c:forEach>  
-        <!--产品列表结束  -->
 	</body>
 </html>
