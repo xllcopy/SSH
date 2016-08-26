@@ -33,8 +33,8 @@ public class BasicServiceImpl<T> implements BasicService<T> {
 	}
 
 	@Override
-	public T get(int id) {
-		return null;
+	public T get(long id) {
+		return basicDaoImpl.get(id);
 	}
 
 	@Override

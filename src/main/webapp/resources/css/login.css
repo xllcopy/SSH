@@ -1,0 +1,68 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #8DD7FF;
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-size: 16px;
+}
+
+.login {
+	width: 500px;
+	height: 300px;
+	background: #fff;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.login .login-title {
+	width: 100%;
+	height: 50px;
+	background: #C4E5EA;
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #367A9D;
+	letter-spacing: 3px;
+}
+
+.login .login-main {
+	padding-top: 60px;
+}
+
+.login .login-main .uname {
+	width: 80%;
+	height: 30px;
+	outline: none;
+}
+
+.login .login-main .pwd {
+	width: 80%;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 16px;
+	outline: none;
+}
+
+.login .login-main label {
+	padding-left: 20px;
+}
+
+.login .login-main .loginButton {
+	width: 90px;
+	height: 40px;
+	margin: 0 auto;
+	display: block;
+	margin-top: 20px;
+	font-size: 20px;
+	background: #9BC385;
+	color: #fff;
+	font-weight: bold;
+	outline: none;
+}
+.hint{
+	height:25px;
+	width:500px;
+	margin:0 auto;
+	text-align:center;
+	color:#FF0000;
+}

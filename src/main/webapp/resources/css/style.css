@@ -87,20 +87,6 @@ ul.breadcrumb li.active a { color:#f38256; }
 
 .message { padding: 20px 85px; font-size: 14px; line-height: 100%; margin-bottom: 15px; }
 .message.success { color: #91a158; background: url(../images/message_cart.png) no-repeat 15px center #f9fff1; border: solid 1px #dcedbf; }
-.cart-table{ width: 100%; margin: 10px 0; }
-.cart-table tr{ width: 40px; }
-.cart-table, th, td{ border: 1px solid #E8E8E8; border-collapse:collapse; }
-.cart-table .align_center{ text-align: center; }
-.cart-table .align_left{ text-align: left; }
-.cart-table .pr_name{ vertical-align: middle; }
-.cart-table tr td a.remove { display: block; width: 17px; height: 17px; background: url(../images/remove.png) no-repeat -1px -1px #fff; margin: auto; }
-.cart-table tr td a.remove:hover{ background-position:-1px -18px; background-color: #f38256}
-
-.wrap-input { position: relative; width: 36px; padding: 0 115px; }
-.wrap-input a { position: absolute; top: 3px; width: 15px; height: 15px; overflow: hidden; line-height: 50px; }
-
-.text { width: 30px; height: 16px; border: 1px solid #ccc; padding: 2px; text-align: center; }
-.wrap-input a { display: block; }
 
 .totals { float: right; display: inline-block; width: 100%; padding: 17px 0px; overflow: hidden; margin-right: 20px; }
 #totals-table { width: 24%; float: right; font-size: 14px; color: #544f4b; }

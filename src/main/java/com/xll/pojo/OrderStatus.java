@@ -19,7 +19,8 @@ public class OrderStatus {
 	@Column
 	private String status;
 	
-	@OneToOne(mappedBy = "orderStatus" , targetEntity = Order.class)
+	/**mappedBy要与Order中引用OrderStatus的变量名一样*/
+	@OneToOne(mappedBy = "sid" , targetEntity = Order.class)
 	private Order order;
 
 	public long getId() {

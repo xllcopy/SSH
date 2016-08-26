@@ -1,0 +1,7 @@
+.mark{
+	display:block;
+	float:right;
+}
+.mark a:hover{
+	color: #FF0033;
+}

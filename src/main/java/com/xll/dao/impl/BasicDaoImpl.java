@@ -48,10 +48,10 @@ public class BasicDaoImpl<T> implements BasicDao<T> {
 	}
 
 	@Override
-	public T get(int id) {
+	public T get(long id) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "from " + clazz.getSimpleName() + " where id = ?";
-		return (T) session.createQuery(hql).setInteger(0, id).uniqueResult();
+		return (T) session.createQuery(hql).setLong(0, id).uniqueResult();
 	}
 
 	@Override

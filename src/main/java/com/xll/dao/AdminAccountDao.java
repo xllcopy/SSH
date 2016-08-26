@@ -10,16 +10,8 @@ import com.xll.pojo.AdminAccount;
  */
 public interface AdminAccountDao extends BasicDao<AdminAccount>{
 
-	/**
-	 *@author xialonglei
-	 *@since 2016/7/9 
-	 */
 	List<AdminAccount> queryAdminAccounts(int page, int rows, String loginName);
 
-	/**
-	 *@author xialonglei
-	 *@since 2016/7/16 
-	 */
 	void deleteAdminAccounts(String ids);
 
 }

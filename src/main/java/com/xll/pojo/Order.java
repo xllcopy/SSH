@@ -154,4 +154,11 @@ public class Order {
 	public void setGoodsBuyInfos(Set<GoodsBuyInfo> goodsBuyInfos) {
 		this.goodsBuyInfos = goodsBuyInfos;
 	}
+	
+	
+	public Order(Set<GoodsBuyInfo> goodsBuyInfos){
+		this.goodsBuyInfos = goodsBuyInfos;
+	}
+	
+	public Order(){}
 }

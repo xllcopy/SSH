@@ -40,4 +40,13 @@
         <property name="maxUploadSize" value="10485760000"></property>  
         <property name="maxInMemorySize" value="40960"></property>  
    </bean> 
+   
+   <!--配置拦截器-->
+   <mvc:interceptors>
+	    <!-- 多个拦截器，按顺序执行 -->        
+	    <mvc:interceptor>
+	        <mvc:mapping path="/cart/addProduct"/> <!-- /**表示拦截所有的url包括子url路径 -->
+	        <bean class="com.xll.interceptor.LoginInterceptor"/>
+	    </mvc:interceptor>
+	</mvc:interceptors>
 </beans>

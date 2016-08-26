@@ -12,13 +12,9 @@ public interface  BasicDao<T> {
       
     public abstract void delete(int id);  
       
-    public abstract T get(int id);  
+    public abstract T get(long id);  
       
     public abstract List<T> queryAllRecord();
     
-    /**
-     *@author xialonglei
-     *@since 2016/6/18 
-     */
     public abstract Long getRecordAmount();
 }
