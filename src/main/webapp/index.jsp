@@ -30,12 +30,13 @@
 	              	  <a href='#' class='product_image'><img src='${shop}${product.productPicturePath}' /></a>
 	                  <div class='product_info'>
 	                      <h3><a href='#'>商品名称：${product.productName }</a></h3>
-	                      <small>简单描述：${product.productSimDesc}</small> </div>
-	                  <div class='price_info'> 
-	                      <a href='${shop}/cart/addProduct?id=${product.id}'><button><span class='product_add_into_cart'>添加购物车</span></button></a>
-	                      <button class='price_add' type='button'>
-	                      	<span class='product_price'>￥${product.productPrice}</span>
-	                      </button>
+	                      <small>简单描述：${product.productSimDesc}</small> 
+	                  </div>
+	                  <div class='price_info'>
+	                      <a href='${shop}/cart/addProduct?id=${product.id}'>
+	                      	<span class='product_add_into_cart'>添加购物车</span>
+	                      </a>
+	                      <span class='product_price'>￥${product.productPrice}</span>
 	                  </div>
 	                  <input type='hidden' name='id' value='${product.id}'/>
 	              </li>
