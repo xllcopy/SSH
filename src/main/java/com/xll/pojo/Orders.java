@@ -19,6 +19,12 @@ import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+/**
+ *之前该类名为Order,一直不能生成表,但也不报错,
+ *原因是表不能带有order、level、address、degree、group
+ *等关键字 
+ */
 @Entity
 @Table
 @JsonIgnoreProperties(value={"goodsBuyInfos"})

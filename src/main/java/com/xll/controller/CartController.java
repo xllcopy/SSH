@@ -63,6 +63,9 @@ public class CartController {
 		return "payInfoFrame";
 	}
 	
+	/**
+	 *@date 2016/8/27 
+	 */
 	@RequestMapping(value = "/orderSubmit" , method=RequestMethod.POST)
 	@ResponseBody
 	public String orderSubmit(HttpSession session ,@RequestParam String name , @RequestParam String mobile , 
