@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.xll.dao.GoodsBuyInfoDao;
 import com.xll.pojo.GoodsBuyInfo;
-import com.xll.pojo.Order;
+import com.xll.pojo.Orders;
 import com.xll.pojo.Product;
 @Repository
 @Transactional
@@ -18,10 +18,10 @@ public class GoodsBuyInfoDaoImpl extends BasicDaoImpl<GoodsBuyInfo> implements G
 	}
 	
 	@Override
-	public Order addGoodsBuyInfoIntoOrder(Order order, GoodsBuyInfo goodsBuyInfo) {
+	public Orders addGoodsBuyInfoIntoOrder(Orders order, GoodsBuyInfo goodsBuyInfo) {
 		
 		if(order == null){
-			order = new Order(new HashSet<GoodsBuyInfo>());
+			order = new Orders(new HashSet<GoodsBuyInfo>());
 		}
 		for(GoodsBuyInfo oGoodsBuyInfo : order.getGoodsBuyInfos()){
 			if(oGoodsBuyInfo.getProduct().getId() == goodsBuyInfo.getProduct().getId()){
@@ -30,6 +30,7 @@ public class GoodsBuyInfoDaoImpl extends BasicDaoImpl<GoodsBuyInfo> implements G
 				return order;
 			}
 		}
+		goodsBuyInfo.setOrder(order);
 		order.getGoodsBuyInfos().add(goodsBuyInfo);
 		return order;
 	}

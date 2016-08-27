@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.xll.dao.GoodsBuyInfoDao;
 import com.xll.pojo.GoodsBuyInfo;
-import com.xll.pojo.Order;
+import com.xll.pojo.Orders;
 import com.xll.pojo.Product;
 import com.xll.service.GoodsBuyInfoService;
 @Service
@@ -16,7 +16,7 @@ public class GoodsBuyInfoServiceImpl extends BasicServiceImpl<GoodsBuyInfo> impl
 	private GoodsBuyInfoDao goodsBuyInfoDaoImpl;
 
 	@Override
-	public Order addGoodsBuyInfoIntoOrder(Order order, GoodsBuyInfo goodsBuyInfo) {
+	public Orders addGoodsBuyInfoIntoOrder(Orders order, GoodsBuyInfo goodsBuyInfo) {
 		return goodsBuyInfoDaoImpl.addGoodsBuyInfoIntoOrder(order, goodsBuyInfo);
 	}
 

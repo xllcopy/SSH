@@ -47,9 +47,9 @@ public class User {
 	@Column
 	private String email;
 	
-	@OneToMany(targetEntity = Order.class)
+	@OneToMany(targetEntity = Orders.class)
 	@Cascade({CascadeType.ALL})
-	private Set<Order> orders;
+	private Set<Orders> orders;
 
 	public long getId() {
 		return id;
@@ -107,11 +107,11 @@ public class User {
 		this.email = email;
 	}
 
-	public Set<Order> getOrders() {
+	public Set<Orders> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<Order> orders) {
+	public void setOrders(Set<Orders> orders) {
 		this.orders = orders;
 	}
 }

@@ -53,8 +53,8 @@
 				<value>com.xll.pojo.Product</value>
 				<value>com.xll.pojo.User</value>
 				<value>com.xll.pojo.GoodsBuyInfo</value>
-				<value>com.xll.pojo.Order</value>
 				<value>com.xll.pojo.OrderStatus</value>
+				<value>com.xll.pojo.Orders</value>
 			</list>
 		</property>
 	</bean>

@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table
 @JsonIgnoreProperties(value={"goodsBuyInfos"})
-public class Order {
+public class Orders {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -156,9 +156,10 @@ public class Order {
 	}
 	
 	
-	public Order(Set<GoodsBuyInfo> goodsBuyInfos){
+	public Orders(Set<GoodsBuyInfo> goodsBuyInfos){
 		this.goodsBuyInfos = goodsBuyInfos;
 	}
 	
-	public Order(){}
+	
+	public Orders(){}
 }

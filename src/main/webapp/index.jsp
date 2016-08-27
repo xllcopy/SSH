@@ -8,7 +8,8 @@
 		<script type='text/javascript'>
 			$(function(){
 				if($('.mark').text() == ""){
-					$('.mark').val("请登录!");
+					$('.mark').text("请登录!");
+					$('.mark').attr('href' , 'user/loginFrame')
 				}
 			})
 		</script>

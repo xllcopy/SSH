@@ -1,8 +1,8 @@
 package com.xll.dao;
 
-import com.xll.pojo.Order;
+import com.xll.pojo.Orders;
 
-public interface OrderDao {
-	public double computeTotalPrice(Order order);
+public interface OrderDao extends BasicDao<Orders>{
+	public double computeTotalPrice(Orders order);
 
 }

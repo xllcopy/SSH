@@ -4,17 +4,17 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import com.xll.dao.OrderDao;
-import com.xll.pojo.Order;
+import com.xll.pojo.Orders;
 import com.xll.service.OrderService;
 
 @Service
-public class OrderServiceImpl extends BasicServiceImpl<Order> implements OrderService{
+public class OrderServiceImpl extends BasicServiceImpl<Orders> implements OrderService{
 	
 	@Resource
 	private OrderDao orderDaoImpl;
 
 	@Override
-	public double computeTotalPrice(Order order) {
+	public double computeTotalPrice(Orders order) {
 		return orderDaoImpl.computeTotalPrice(order);
 	}
 

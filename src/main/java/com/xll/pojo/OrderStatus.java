@@ -20,8 +20,12 @@ public class OrderStatus {
 	private String status;
 	
 	/**mappedBy要与Order中引用OrderStatus的变量名一样*/
-	@OneToOne(mappedBy = "sid" , targetEntity = Order.class)
-	private Order order;
+	@OneToOne(mappedBy = "sid" , targetEntity = Orders.class)
+	private Orders order;
+	
+	public OrderStatus(String status) {
+		this.status = status;
+	}
 
 	public long getId() {
 		return id;
@@ -39,11 +43,11 @@ public class OrderStatus {
 		this.status = status;
 	}
 
-	public Order getOrder() {
+	public Orders getOrder() {
 		return order;
 	}
 
-	public void setOrder(Order order) {
+	public void setOrder(Orders order) {
 		this.order = order;
 	}
 	

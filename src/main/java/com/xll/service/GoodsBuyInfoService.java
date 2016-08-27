@@ -1,7 +1,7 @@
 package com.xll.service;
 
 import com.xll.pojo.GoodsBuyInfo;
-import com.xll.pojo.Order;
+import com.xll.pojo.Orders;
 import com.xll.pojo.Product;
 
 /**
@@ -15,7 +15,7 @@ public interface GoodsBuyInfoService extends BasicService<GoodsBuyInfo>{
 	 *@param order 订单，在没有真正购买之前它是充当购物车角色
 	 *@param product 商品类 
 	 */
-	public Order addGoodsBuyInfoIntoOrder(Order order ,GoodsBuyInfo goodsBuyInfo);
+	public Orders addGoodsBuyInfoIntoOrder(Orders order ,GoodsBuyInfo goodsBuyInfo);
 	
 	/**
 	 *@param product 商品类

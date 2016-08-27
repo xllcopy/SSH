@@ -35,9 +35,9 @@ public class GoodsBuyInfo {
 	@JoinColumn(name = "pid" , referencedColumnName = "id")
 	private Product product;
 	
-	@ManyToOne(targetEntity = Order.class)
+	@ManyToOne(targetEntity = Orders.class)
 	@JoinColumn(name = "oid" , referencedColumnName = "id")
-	private Order order;
+	private Orders order;
 
 	public long getId() {
 		return id;
@@ -79,11 +79,11 @@ public class GoodsBuyInfo {
 		this.product = product;
 	}
 
-	public Order getOrder() {
+	public Orders getOrder() {
 		return order;
 	}
 
-	public void setOrder(Order order) {
+	public void setOrder(Orders order) {
 		this.order = order;
 	}
 }
