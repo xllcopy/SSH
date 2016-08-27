@@ -30,7 +30,7 @@ public class GoodsBuyInfoDaoImpl extends BasicDaoImpl<GoodsBuyInfo> implements G
 				return order;
 			}
 		}
-		goodsBuyInfo.setOrder(order);
+		goodsBuyInfo.setOrder(order); //购物项需要设置订单值，这样入库的时候才会有oid
 		order.getGoodsBuyInfos().add(goodsBuyInfo);
 		return order;
 	}
